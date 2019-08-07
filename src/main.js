@@ -10,20 +10,20 @@ let abrir = document.getElementById("abrir"),
     cerrar = document.getElementById("cerrar");
 
 abrir.addEventListener("click", () => {
- open.classList.add("active")
- conteiner.classList.add("active")
+    open.classList.add("active")
+    conteiner.classList.add("active")
 });
 cerrar.addEventListener("click", () => {
     open.classList.remove("active")
     conteiner.classList.remove("active")
-  
-
-   });
-   
 
 
-window.addEventListener((event) =>{
-  if( event.target == open) {
-      open.visibility ="hidden";
-  }
+});
+
+
+
+window.addEventListener((event) => {
+    if (event.target == open) {
+        open.visibility = "hidden";
+    }
 });
