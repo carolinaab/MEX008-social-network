@@ -22,8 +22,8 @@ cerrar.addEventListener("click", () => {
 
 
 
-window.addEventListener((event) => {
-    if (event.target == open) {
-        open.visibility = "hidden";
-    }
-});
+// window.addEventListener((event) => {
+//     if (event.target == open) {
+//         open.visibility = "hidden";
+//     }
+// });

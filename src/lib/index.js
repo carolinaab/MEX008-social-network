@@ -7,16 +7,37 @@
 
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyBD3TrlXIg3r44aWbSA0-82CUTgN5o5yEg",
-    authDomain: "red-social-b8d99.firebaseapp.com",
-    databaseURL: "https://red-social-b8d99.firebaseio.com",
-    projectId: "red-social-b8d99",
+const firebaseConfig = {
+    apiKey: "AIzaSyBmKXHHXPk-3WQ49qZhy4JZDMtcN_IrCt0",
+    authDomain: "fitclubredsocial.firebaseapp.com",
+    databaseURL: "https://fitclubredsocial.firebaseio.com",
+    projectId: "fitclubredsocial",
     storageBucket: "",
-    messagingSenderId: "218524371856",
-    appId: "1:218524371856:web:402a09d8ce5eca48"
+    messagingSenderId: "151023209904",
+    appId: "1:151023209904:web:bae938869cf0dc09"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 
+// registrar  
+
+let emailNodo = document.getElementById("email-register");
+let passwordNodo = document.getElementById("password-register");
+let botonRegistrarNodo = document.getElementById("registrarse");
+
+botonRegistrarNodo.addEventListener("click", () => {
+    const emailText = emailNodo.value;
+    const passText = passwordNodo.value;
+    console.log(emailText, passText);
+    //  // SINGN up
+    firebase.auth().createUserWithEmailAndPassword(emailText, passText).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+
+        // ...
+    });
+});
