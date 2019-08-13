@@ -5,6 +5,7 @@
 //   console.log('Hola mundo!');
 // };
 
+<<<<<<< HEAD
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,6 +19,9 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+=======
+// Your web app's Firebase configuration
+>>>>>>> bdaab15cacacab1ce97fcae6b70e00a36483267b
 
 
 // registrar  

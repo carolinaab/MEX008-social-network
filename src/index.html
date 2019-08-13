@@ -12,22 +12,26 @@
 </head>
 
 <body>
+  <ul>
+    <li><a href="#registry">Igresar</a></li>
+    <li><a href="#open-modal"></a>Registrate</li>
+  </ul>
   <main>
 
     <header>
     </header>
 
     <!-- Seccion donde el usuario ingresa datos ya registrados para iniciar sesion -->
-    <section class="registry">
+    <section class="registry" id="registry">
       <section>
 
         <figure>
           <img src="img-page/fit-blanco.png" alt="logo" id="logo">
         </figure>
         <section class="inputs">
-          <input type="text" placeholder="Usuario">
-          <input type="text" placeholder="Contraseña">
-          <button>Iniciar Sesión</button>
+          <input type="text" placeholder="Usuario" id="usuario">
+          <input type="text" placeholder="Contraseña" id="contraseña">
+          <button id="btn-iniciar">Iniciar Sesión</button>
 
         </section>
         <!-- seccion se le piden datos extras -->
@@ -43,13 +47,13 @@
         <p>O inicia con</p>
         <!-- Seccion inicia sesion con otra aplicacion -->
         <section class="aplications">
-          <a href="#"><img src="img-page/facebook.png" alt="facebook" id="face"></a>
-          <a href="#"><img src="img-page/gmail.png" alt="gmail" id="gmail"></a>
+          <a href="#"><img src="img-page/facebook.png" alt="facebook" id="face" target="_blank"></a>
+          <a href="#"><img src="img-page/gmail.png" alt="gmail" id="gmail" target="_blank"></a>
         </section>
       </section>
 
       <!-- modal -->
-      <div id="open" class="modal">
+      <div id="open-modal" class="modal">
 
         <div class="conteiner" id="conteiner">
 
@@ -57,22 +61,23 @@
             <a href="#" id="cerrar" class="cerrar">X</a>
             <h2>Crear una cuenta</h2>
             <p>Registrate con</p>
-            <figure>
-              <a href="#"><img src="img-page/facebook.png" alt="facebook" width="30"></a>
-              <a href="#"><img src="img-page/gmail.png" alt="gmail" width="30"></a>
+            <section class="aplications">
+              <a href="#"><img src="img-page/facebook.png" alt="facebook" id="face-register" width="50"
+                  target="_blank"></a>
+              <a href="#"><img src="img-page/gmail.png" alt="gmail" id="gmail-register" width="50" target="_blank"></a>
+            </section>
 
-            </figure>
-
-            <!-- 
-            <input type="text" id="nombre" placeholder="Nombre" autocomplete="on" required> -->
-            <input type="text" id="email-register" placeholder="Correo electrónico" name="email" autocomplete="on">
-            <input type="password" id="password-register" placeholder="Contraseña">
-            <!-- <label for="year" class="label">Año de nacimiento</label> -->
-            <!-- <input type="number" max="2019" min="1940" id="year" placeholder="1940">
-            <p>Sexo:
-              <input type="radio" name="hm" value="h" id="Hombre" required> Hombre
-              <input type="radio" name="hm" value="m" id="Mujer"> Mujer
-            </p> -->
+            <!-- <input type="text" placeholder="Nombre" autocomplete="on" required id="name-register"> -->
+            <input type="text" placeholder="Correo electrónico" name="email-register" autocomplete="on"
+              id="email-register">
+            <input type="password" placeholder="Contraseña" id="password-register">
+            <!-- <label for="year" class="label">Año de nacimiento</label>
+          <input type="number" max="2019" min="1940" placeholder="1940" id="year-register">
+      
+          <p>Sexo:
+            <input type="radio" name="hm" value="h" required id="man-register"> Hombre
+            <input type="radio" name="hm" value="m" id="woman-register"> Mujer -->
+            </p>
             <p>Al hacer click en Registrarse, acepta los <a href="Términos y condiciones" class="terminos"> Términos y
                 Condiciones</a> de
               uso
@@ -82,28 +87,22 @@
                 Registrarse
               </button>
             </div>
-
-          </form>
         </div>
-      </div>
 
 
     </section>
 
-    <section>
+    </div>
+    </div>
 
-    </section>
+
 
   </main>
-
-
-  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
-
-  <script src="./main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-auth.js"></script>
+  <script src=" main.js"></script>
   <script src="./lib/index.js"></script>
-
+  <!-- <script type="module" src="main.js"></script> -->
 </body>
 
 </html>
