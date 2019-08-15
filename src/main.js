@@ -193,8 +193,9 @@ let addPost = (e) => {
 //     });
 
 // leer documentos 
-let tabla = document.getElementById("tabla");
 db.collection("post").get().then((querySnapshot) => {
+    let tabla = document.getElementById("tabla");
+
     tabla.innerHTML = "";
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data().first}`);
