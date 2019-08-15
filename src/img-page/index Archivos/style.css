@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Cabin', sans-serif;
+}
+.registry{
+    background-image: url(img-page/fondo-registro.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+#logo{
+    width: 35%;
+    margin-top: 15%;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 35%;
+}
+#face{
+    width: 5%;
+}
+#gmail{
+    width: 5%;
+}
+.modal{
+
+position: fixed;
+margin-right: 50%;
+top:0;
+bottom: 0;
+left: 0;
+right: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+
+visibility: hidden;
+}
+.active {
+    visibility: visible;
+}
+
+.modal-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #ecdada;;
+    width: 70%;
+    height: 80vh;
+    align-items: center;
+    margin-right: 70%;
+    text-align: center;
+     
+ }
+
+
+ a.cerrar, .terminos {
+  text-decoration: none;
+ }
+
+a.cerrar{
+margin-left: 80%;
+margin-bottom: 10%;
+font-size: 25px;
+font-family: sans-serif;
+font-weight: bold;
+}
+
+.label {
+width: 100%;
+font-size: 15px;
+text-align: center;
+}
+ 
+.modal-content input {
+   margin-top: 10px;
+   display: flex;
+   justify-content: flex-start;
+   }
+.modal-content input[type="radio"] {
+       display:inline;
+   }
+
+   figure img{
+       padding:1rem;
+       margin-left: 1rem;
+   }
+

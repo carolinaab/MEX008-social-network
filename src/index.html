@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Fit Club</title>
+  <script type="module" src="app.js"></script>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
 
@@ -13,83 +14,21 @@
 
 <body>
 
-  <main>
+  <table>
+    <thead>
+      <tr>
+        <th>lo nuevo</th>
+      </tr>
+    </thead>
 
-    <header>
-    </header>
+  </table>
+  <header id="header-container"></header>
+  <main id="page-container"></main>
 
-    <!-- Seccion donde el usuario ingresa datos ya registrados para iniciar sesion -->
-    <section class="registry" id="registry">
-      <section>
-
-        <figure>
-          <img src="img-page/fit-blanco.png" alt="logo" id="logo">
-        </figure>
-        <section class="inputs">
-          <input type="text" placeholder="Usuario" id="usuario">
-          <input type="text" placeholder="Contraseña" id="contraseña">
-          <button id="btn-iniciar">Iniciar Sesión</button>
-
-        </section>
-        <!-- seccion se le piden datos extras -->
-        <section class="forget-password">
-          <label>
-            <input type="checkbox" name="remember" id="remember" checked>
-            Recordarme
-          </label>
-          <a href="#">Olvidaste tu contraseña</a>
-          <a href="#" id="abrir">Registrate</a>
-        </section>
-
-        <p>O inicia con</p>
-        <!-- Seccion inicia sesion con otra aplicacion -->
-        <section class="aplications">
-          <a href="#"><img src="img-page/facebook.png" alt="facebook" id="face"></a>
-          <a href="#"><img src="img-page/gmail.png" alt="gmail" id="gmail"></a>
-        </section>
-      </section>
-
-      <!-- modal -->
-      <div id="open-modal" class="modal">
-
-        <div class="conteiner" id="conteiner">
-
-          <form id="modal-content" class="modal-content">
-            <a href="#" id="cerrar" class="cerrar">X</a>
-            <h2>Crear una cuenta</h2>
-            <p>Registrate con</p>
-            <section class="aplications">
-              <a href="#"><img src="img-page/facebook.png" alt="facebook" id="face-register" width="50"></a>
-              <a href="#"><img src="img-page/gmail.png" alt="gmail" id="gmail-register" width="50"></a>
-            </section>
-
-
-            <input type="text" placeholder="Correo electrónico" name="email-register" autocomplete="off"
-              id="email-register">
-            <input type="password" placeholder="Contraseña" id="password-register">
-
-
-            <p>Al hacer click en Registrarse, acepta los <a href="Términos y condiciones" class="terminos"> Términos y
-                Condiciones</a> de
-              uso
-              de Fit Club</p>
-            <div>
-              <button class="registrarse" id="registrarse">
-                Registrarse
-              </button>
-            </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-  </main>
   <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-auth.js"></script>
-
-  <script src=" main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+  <script type="text/javascript" src=" main.js"></script>
   <script src="./lib/index.js"></script>
 
   <!-- <script type="module" src="main.js"></script> -->

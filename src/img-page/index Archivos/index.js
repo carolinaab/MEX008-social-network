@@ -4,4 +4,6 @@
 //   // aqui tu codigo
 //   console.log('Hola mundo!');
 // };
-// eventos para abrir y cerra modal
+
+// Your web app's Firebase configuration
+
