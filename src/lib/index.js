@@ -5,7 +5,7 @@
 //   console.log('Hola mundo!');
 // };
 // eventos para abrir y cerra modal
-"use strict";
+"use strict"
 const abrir = document.getElementById("abrir");
 const open = document.getElementById("open-modal");
 const conteiner = document.getElementById("conteiner");
@@ -40,11 +40,14 @@ const register = () => {
     const passRegister = document.getElementById("password-register").value;
     firebase.auth().createUserWithEmailAndPassword(emailRegister, passRegister).catch(function (error) {
         // Handle Errors here.
-
+        if (passRegister.length < 4) {
+            alert("la contraseña debe ser de 6 caracteres");
+            return;
+        }
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        alert(errorCode);
+        alert(errorMessage);
 
     });
 };
@@ -57,14 +60,16 @@ const inicioSesion = () => {
     const userIn = document.getElementById("usuario").value;
     const passIn = document.getElementById("contraseña").value;
 
-    firebase.auth().signInWithEmailAndPassword(userIn, passIn).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+    firebase.auth().signInWithEmailAndPassword(userIn, passIn)
+        .then(() => goHome())
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
 
-    });
+        });
 };
 const btnIniciarSesion = document.getElementById("btn-iniciar");
 btnIniciarSesion.addEventListener("click", inicioSesion, false);
@@ -147,3 +152,4 @@ const btnfaceRegister = document.getElementById("face-register");
 const btnfaceInicio = document.getElementById("face");
 btnfaceRegister.addEventListener("click", ingresoConFacebook, false);
 btnfaceInicio.addEventListener("click", ingresoConFacebook, false);
+
