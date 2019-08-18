@@ -91,4 +91,48 @@ text-align: center;
        padding:1rem;
        margin-left: 1rem;
    }
+   
+   .tabla {
+       height: 10vh;
+   }
 
+.content{
+    background: rgb(230, 224, 240);
+    max-width: 960px;
+    margin: 30px auto;
+   
+    padding:  20px 30px;
+    border-radius: 10px 120px 10px 10px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li{
+    padding: 20px;
+    background: #f6f6f6;
+    font-size: 20px;
+    color: #555;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    height: 46px;
+}
+span{
+    display: block;
+    font-size: 16px;
+    margin-top: 6px;
+    color: rgb(48, 160, 104);
+}
+   span {
+    top: 0;
+    right: 0px;
+    background: rgba(255,255,255,0.6);
+    border: solid 1px red;
+    width: 50%;
+    height: 10vh;
+    text-align: center;
+    padding: 10px 0;
+    justify-content: center;
+    
+   }

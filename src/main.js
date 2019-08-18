@@ -20,27 +20,51 @@ const goHome = () => {
 
 
 //Observador de usuarios ya registrados
-const observer = () => {
+const addPost = (e) => {
+    e.preventDefault();
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log("existe usuario activo")
-            // User is signed in.
-            let displayName = user.displayName;
-            let email = user.email;
-            let emailVerified = user.emailVerified;
-            let photoURL = user.photoURL;
-            let isAnonymous = user.isAnonymous;
-            let uid = user.uid;
-            let providerData = user.providerData;
-            // ...
-        } else {
-            // User is signed out.
-            console.log("no existe usuario activo")
-            // ...
-        }
-    });
-}
 
+        let nombre = user.email;
+        let post = document.getElementById("tex-post").value
+
+        // e.preventDefault();
+        db.collection("post").add({
+            name: nombre,
+            posts: post,
+
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
+
+        document.getElementById("tex-post").value = "";
+    });
+
+};
+
+const observador = () => {
+    if (user) {
+        console.log("existe usuario activo")
+        // User is signed in.
+        let displayName = user.displayName;
+
+        let emailVerified = user.emailVerified;
+        let photoURL = user.photoURL;
+        let isAnonymous = user.isAnonymous;
+        let uid = user.uid;
+        let providerData = user.providerData;
+        // ...
+    } else {
+        // User is signed out.
+        console.log("no existe usuario activo")
+        // ...
+    }
+};
+
+// inicio de sesion
 const inicioSesion = (e) => {
     // aqui se obtienen los valores
     e.preventDefault();
@@ -59,7 +83,7 @@ const inicioSesion = (e) => {
         });
 };
 
-observer();
+
 
 // SINGN UP
 const register = (e) => {
@@ -154,59 +178,35 @@ const ingresoConFacebook = () => {
 };
 
 
-let addPost = (e) => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user.uid != '') {
-            e.preventDefault();
-            let postTxt = document.getElementById('tex-post').value;
-            console.log(user);
-            db.collection("post").add({
-                usuario: user.uid,
-                nombre: user.displayName,
-                postContent: postTxt
-            })
-                .then(function (docRef) {
-                    console.log("Document written with ID: ", docRef.id);
-                })
-                .catch(function (error) {
-                    console.error("Error adding document: ", error);
-                });
 
-            // User is signed in.
-        } else {
-            console.log("no hay usuario logeado")
-            // No user is signed in.
-        }
-    });
-}
-
-// db.collection("users").add({
-//         first: "Ada",
-//         last: "Lovelace",
-//         born: 1815
-//     })
-//     .then(function (docRef) {
-//         console.log("Document written with ID: ", docRef.id);
-//     })
-//     .catch(function (error) {
-//         console.error("Error adding document: ", error);
-//     });
 
 // leer documentos 
-db.collection("post").get().then((querySnapshot) => {
+db.collection("post").orderBy("posts", "desc").onSnapshot((querySnapshot) => {
     let tabla = document.getElementById("tabla");
 
     tabla.innerHTML = "";
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().first}`);
+        console.log(doc.id);
         tabla.innerHTML += `
-        <tr>
-        <th>${doc.id}</th>
-        <td>${doc.data().first}</td>
-        <td> ${doc.data().usuario}</td>
-        <td> ${doc.data().nombre}</td>
-        <td>${doc.data().postContent}</td>
-      </tr>`
+       <h2>${doc.data().name}<h2>
+       <span>${doc.data().posts}</span>
+       <button id="borrar">borrar</button>
+       <button id="editar">editar</button>
+       <button id="like">like</button>
+       `
 
     });
+
 });
+
+// borrar
+
+const deletePost = (doc) => {
+    db.collection("post").doc("DC").delete().then(function () {
+        console.log("Document successfully deleted!");
+    }).catch(function (error) {
+        console.error("Error removing document: ", error);
+    });
+
+}
+
